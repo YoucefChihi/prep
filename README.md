@@ -81,6 +81,27 @@ const getBlockPolicyState = (domains) => {
 };
 ```
 
+## Solution
+
+a) `Object.keys`, `for` loop, `some` and `every` all have O(n) complexity, but inside the `for` loop we've got `Object.entries` which has O(n), which makes the whole complexity O(n^2)
+
+b)
+```javascript
+const getBlockPolicyState = (domains) => {
+  let oneDomain = false
+  let allDomains = true
+  Object.entries(domains).forEach(entry => {
+    const {policy} = entry[1]
+    const isBlockPolicy = policy === 'block'
+    oneDomain = oneDomain || isBlockPolicy
+    allDomains = allDomains && isBlockPolicy
+  })
+  return { oneDomain, allDomains };
+};
+```
+
+c) The optimized solution has O(n) complexity
+
 # Task 3
 
 Find the first recurring character of the below lists
