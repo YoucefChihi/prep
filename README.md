@@ -1,4 +1,4 @@
-## Task 1
+# Task 1
 
 Count how many Apples, Pears, Lemons, Oranges, Pineapples, Tomatoes, Mangos and Bananas are in the list.
 
@@ -32,7 +32,31 @@ const task1 = [
 ];
 ```
 
-## Task 2
+## Solution:
+
+```javascript
+const collectionCount = {
+  Apple: 0,
+  Pear: 0, 
+  Lemon: 0, 
+  Orange: 0, 
+  Pineapple: 0, 
+  Tomatoe: 0, 
+  Mango: 0, 
+  Banana: 0,
+}
+
+task1.forEach(item => {
+  const capitalizedName = item[0].toUpperCase() + item.slice(1);
+  if (collectionCount[capitalizedName] >= 0) {
+    collectionCount[capitalizedName]++
+  }
+})
+
+console.log(collectionCount)
+```
+
+# Task 2
 
 a) What is the performance, in terms of, Big O notation, of the below code?
 b) Write a solution that has better performance
@@ -57,7 +81,7 @@ const getBlockPolicyState = (domains) => {
 };
 ```
 
-## Task 3
+# Task 3
 
 Find the first recurring character of the below lists
 
